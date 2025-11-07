@@ -257,6 +257,108 @@
             background: #2575fc;
         }
         
+        /* About Page Styles */
+        .about-page {
+            display: none;
+            padding: 20px 15px;
+        }
+        
+        .about-hero {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .about-hero h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .about-content {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        
+        .about-content h2 {
+            color: #6a11cb;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .values {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .value-item i {
+            font-size: 1.8rem;
+            color: #6a11cb;
+            margin-bottom: 10px;
+        }
+        
+        .value-item h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        
+        .team {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .member-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #e9ecef;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #6a11cb;
+        }
+        
+        .team-member h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .team-member p {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        
         /* Footer */
         footer {
             background: #2d3748;
@@ -339,6 +441,10 @@
             .footer-content {
                 grid-template-columns: repeat(4, 1fr);
             }
+            
+            .values, .team {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
     </style>
 </head>
@@ -364,157 +470,232 @@
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href="#" class="active">All</a></li>
-            <li><a href="#">Fashion</a></li>
-            <li><a href="#">Electronics</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Beauty</a></li>
-            <li><a href="#">Toys</a></li>
-            <li><a href="#">Sports</a></li>
+            <li><a href="#" class="nav-link active" data-page="home">All</a></li>
+            <li><a href="#" class="nav-link" data-page="home">Fashion</a></li>
+            <li><a href="#" class="nav-link" data-page="home">Electronics</a></li>
+            <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+            <li><a href="#" class="nav-link" data-page="home">Beauty</a></li>
+            <li><a href="#" class="nav-link" data-page="home">Toys</a></li>
+            <li><a href="#" class="nav-link" data-page="about">About</a></li>
         </ul>
     </nav>
     
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Summer Sale Up To 50% Off</h1>
-        <p>Get the best deals on top brands. Limited time offer!</p>
-        <button class="cta-button">Shop Now</button>
-    </section>
+    <!-- Home Page Content -->
+    <div id="home-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Summer Sale Up To 50% Off</h1>
+            <p>Get the best deals on top brands. Limited time offer!</p>
+            <button class="cta-button">Shop Now</button>
+        </section>
+        
+        <!-- Categories -->
+        <div class="section-title">
+            <h2>Categories</h2>
+            <a href="#">See All</a>
+        </div>
+        <div class="categories">
+            <div class="category">
+                <i class="fas fa-tshirt"></i>
+                <span>Fashion</span>
+            </div>
+            <div class="category">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Electronics</span>
+            </div>
+            <div class="category">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="category">
+                <i class="fas fa-utensils"></i>
+                <span>Kitchen</span>
+            </div>
+            <div class="category">
+                <i class="fas fa-heartbeat"></i>
+                <span>Health</span>
+            </div>
+            <div class="category">
+                <i class="fas fa-gamepad"></i>
+                <span>Toys</span>
+            </div>
+        </div>
+        
+        <!-- Featured Products -->
+        <div class="section-title">
+            <h2>Featured Products</h2>
+            <a href="#">See All</a>
+        </div>
+        <div class="products">
+            <div class="product">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')"></div>
+                <div class="product-info">
+                    <div class="product-title">Smart Watch Series 5</div>
+                    <div class="product-price">$199.99</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')"></div>
+                <div class="product-info">
+                    <div class="product-title">Wireless Headphones</div>
+                    <div class="product-price">$89.99</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')"></div>
+                <div class="product-info">
+                    <div class="product-title">Smart Speaker</div>
+                    <div class="product-price">$129.99</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')"></div>
+                <div class="product-info">
+                    <div class="product-title">Digital Camera</div>
+                    <div class="product-price">$459.99</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Deals Section -->
+        <div class="section-title">
+            <h2>Today's Deals</h2>
+            <a href="#">See All</a>
+        </div>
+        <div class="products">
+            <div class="product">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')"></div>
+                <div class="product-info">
+                    <div class="product-title">Running Shoes</div>
+                    <div class="product-price"><span style="text-decoration: line-through; color: #999; font-weight: normal;">$129.99</span> $79.99</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')"></div>
+                <div class="product-info">
+                    <div class="product-title">Gaming Keyboard</div>
+                    <div class="product-price"><span style="text-decoration: line-through; color: #999; font-weight: normal;">$89.99</span> $59.99</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <!-- Categories -->
-    <div class="section-title">
-        <h2>Categories</h2>
-        <a href="#">See All</a>
-    </div>
-    <div class="categories">
-        <div class="category">
-            <i class="fas fa-tshirt"></i>
-            <span>Fashion</span>
+    <!-- About Page Content -->
+    <div id="about-page" class="about-page">
+        <div class="about-hero">
+            <h1>About ShopEasy</h1>
+            <p>Your trusted mobile shopping destination since 2020</p>
         </div>
-        <div class="category">
-            <i class="fas fa-mobile-alt"></i>
-            <span>Electronics</span>
-        </div>
-        <div class="category">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </div>
-        <div class="category">
-            <i class="fas fa-utensils"></i>
-            <span>Kitchen</span>
-        </div>
-        <div class="category">
-            <i class="fas fa-heartbeat"></i>
-            <span>Health</span>
-        </div>
-        <div class="category">
-            <i class="fas fa-gamepad"></i>
-            <span>Toys</span>
-        </div>
-    </div>
-    
-    <!-- Featured Products -->
-    <div class="section-title">
-        <h2>Featured Products</h2>
-        <a href="#">See All</a>
-    </div>
-    <div class="products">
-        <div class="product">
-            <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')"></div>
-            <div class="product-info">
-                <div class="product-title">Smart Watch Series 5</div>
-                <div class="product-price">$199.99</div>
-                <div class="product-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+        
+        <div class="about-content">
+            <h2>Our Story</h2>
+            <p>Founded in 2020, ShopEasy started as a small startup with a big vision: to make mobile shopping effortless, enjoyable, and accessible to everyone. Today, we're proud to serve millions of customers worldwide with a curated selection of quality products.</p>
+            
+            <h2>Our Mission</h2>
+            <p>To simplify online shopping by providing a seamless mobile experience, competitive prices, and exceptional customer service. We believe that everyone deserves access to quality products without the hassle.</p>
+            
+            <h2>Our Values</h2>
+            <div class="values">
+                <div class="value-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>We ensure quick and reliable shipping</p>
                 </div>
-                <button class="add-to-cart">Add to Cart</button>
+                <div class="value-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Shopping</h3>
+                    <p>Your data and payments are protected</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>We're here to help anytime</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Sustainability</h3>
+                    <p>Committed to eco-friendly practices</p>
+                </div>
             </div>
-        </div>
-        <div class="product">
-            <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')"></div>
-            <div class="product-info">
-                <div class="product-title">Wireless Headphones</div>
-                <div class="product-price">$89.99</div>
-                <div class="product-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
+            
+            <h2>Meet Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Sarah Johnson</h3>
+                    <p>CEO & Founder</p>
                 </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-        <div class="product">
-            <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')"></div>
-            <div class="product-info">
-                <div class="product-title">Smart Speaker</div>
-                <div class="product-price">$129.99</div>
-                <div class="product-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Michael Chen</h3>
+                    <p>Head of Technology</p>
                 </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-        <div class="product">
-            <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')"></div>
-            <div class="product-info">
-                <div class="product-title">Digital Camera</div>
-                <div class="product-price">$459.99</div>
-                <div class="product-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Emily Rodriguez</h3>
+                    <p>Marketing Director</p>
                 </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Deals Section -->
-    <div class="section-title">
-        <h2>Today's Deals</h2>
-        <a href="#">See All</a>
-    </div>
-    <div class="products">
-        <div class="product">
-            <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')"></div>
-            <div class="product-info">
-                <div class="product-title">Running Shoes</div>
-                <div class="product-price"><span style="text-decoration: line-through; color: #999; font-weight: normal;">$129.99</span> $79.99</div>
-                <div class="product-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>David Kim</h3>
+                    <p>Customer Experience</p>
                 </div>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-        <div class="product">
-            <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')"></div>
-            <div class="product-info">
-                <div class="product-title">Gaming Keyboard</div>
-                <div class="product-price"><span style="text-decoration: line-through; color: #999; font-weight: normal;">$89.99</span> $59.99</div>
-                <div class="product-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
             </div>
         </div>
     </div>
@@ -525,7 +706,7 @@
             <div class="footer-column">
                 <h3>ShopEasy</h3>
                 <ul>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
                     <li><a href="#">Careers</a></li>
                     <li><a href="#">Press</a></li>
                     <li><a href="#">Corporate</a></li>
@@ -565,27 +746,63 @@
     
     <!-- Bottom Navigation -->
     <div class="bottom-nav">
-        <a href="#" class="nav-item active">
+        <a href="#" class="nav-item active" data-page="home">
             <i class="fas fa-home"></i>
             <span>Home</span>
         </a>
-        <a href="#" class="nav-item">
+        <a href="#" class="nav-item" data-page="home">
             <i class="fas fa-search"></i>
             <span>Search</span>
         </a>
-        <a href="#" class="nav-item">
+        <a href="#" class="nav-item" data-page="home">
             <i class="fas fa-shopping-bag"></i>
             <span>Orders</span>
         </a>
-        <a href="#" class="nav-item">
+        <a href="#" class="nav-item" data-page="about">
             <i class="fas fa-user"></i>
-            <span>Account</span>
+            <span>About</span>
         </a>
     </div>
 
     <script>
-        // Simple JavaScript for interactive elements
+        // Page Navigation
         document.addEventListener('DOMContentLoaded', function() {
+            // Navigation functionality
+            const navLinks = document.querySelectorAll('.nav-link, .nav-item');
+            const homePage = document.getElementById('home-page');
+            const aboutPage = document.getElementById('about-page');
+            
+            // Function to switch pages
+            function showPage(page) {
+                if (page === 'home') {
+                    homePage.style.display = 'block';
+                    aboutPage.style.display = 'none';
+                } else if (page === 'about') {
+                    homePage.style.display = 'none';
+                    aboutPage.style.display = 'block';
+                }
+                
+                // Update active states
+                navLinks.forEach(link => {
+                    if (link.getAttribute('data-page') === page) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Add click events to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    if (page) {
+                        showPage(page);
+                    }
+                });
+            });
+            
             // Add to cart buttons
             const addToCartButtons = document.querySelectorAll('.add-to-cart');
             addToCartButtons.forEach(button => {
